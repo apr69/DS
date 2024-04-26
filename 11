@@ -1,0 +1,22 @@
+Pull Impala Docker Image & Run Impala Container:
+
+docker run -d --name kudu-impala -p 21000:21000 -p 21050:21050 -p 25000:25000 -p 25010:25010 -p 25020:25020 apache/kudu:impala-latest impala
+
+
+Access Impala Shell :
+
+docker exec -it kudu-impala impala-shell
+
+CREATE DATABASE my_database;
+
+USE my_database;
+
+CREATE TABLE users ( id INT, name VARCHAR, age INT );
+
+INSERT INTO users VALUES
+(1, 'Shantanu', 21),
+(2, 'Siddheya', 20),
+(3, ‘Harshal', 20);
+
+SELECT * FROM users; 
+
